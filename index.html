@@ -7,15 +7,17 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+        <link rel="icon" href="favicon-32x32.png">
     </head>
     
-    <body>
+    <body  onload="clear()">
         <form>
           <t>Search  Dictionary  for  Synonyms: <br></t>
-          <input type="text" name = "syn" id="synonym" value="" onkeydown="buttonClick()">
+          <input type="text" name = "syn" id="synonym" value="" onkeydown="buttonClick(), fieldClear()">
           <button id = "button" name="search" type="button" onclick="synonymSearch()">Search</button>
         </form> <br>
         <div id="search"></div><br>
+        Click on a Synonym to Display its Definitions!
         <p id ="definition"></p>
     </body>
 </html>

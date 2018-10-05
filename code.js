@@ -1,4 +1,5 @@
 function synonymSearch(e) {
+    $("#search").show();
     var value = document.getElementById("synonym").value;
     var myurl =  "https://wordsapiv1.p.mashape.com/words/" + value + "/synonyms"
     
@@ -16,7 +17,7 @@ function synonymSearch(e) {
                 var synonym = parsed_json.synonyms[i];
                 if (!synonym.indexOf(synonym)) {
                     everything += "<ul>"
-                    everything += "<li  onclick='showDefinition(synonym)'>" + synonym; + "</li>"
+                    everything += "<li  onclick='showDefinition()'>" + synonym; + "</li>"
                     everything += "</ul>";
                 }
             }
@@ -27,13 +28,15 @@ function synonymSearch(e) {
 
 function buttonClick(e) {
     if (event.keyCode == 13) {
+    $("#search").show();
     document.getElementById('button').click()
     event.returnValue=false;
     event.cancel=true;
     }
 }
 
-function showDefinition(synonym) {
+function showDefinition() {
+    $("#definition").show();
     var listItems = document.querySelectorAll("ul li");
     var word = "";
     listItems.forEach(function(item) {
@@ -56,7 +59,7 @@ function showDefinition(synonym) {
                 var definition = parsed_json.definitions[i].definition;
                 
                 everything += "<ul>"
-                everything += "<li>" + [i + 1] + ". "  + definition + "." + "</li>"
+                everything += "<ul>" + [i + 1] + ". "  + definition + "." + "</ul>"
                 everything += "</ul>";
             }
             $("#definition").html(everything);
@@ -65,4 +68,16 @@ function showDefinition(synonym) {
         
   }
 });
+}
+
+function fieldClear() {
+    if ($('#search').is(':empty') == false){
+        $("#definition").hide();
+        $("#search").hide();
+    }
+}
+
+function clear() {
+    $("#definition").hide();
+    $("#search").hide();
 }
