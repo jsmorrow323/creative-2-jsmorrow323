@@ -2,17 +2,20 @@
 <html>
     <head>
         <title>Synonym Search</title>
+        <script src="code.js"></script>
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
     </head>
     
     <body>
-        <form action="synonymSearch()">
-          <t>Search  Oxford  Dictionary  for  Synonyms: <br></t>
-          <input type="text" name="synonym" value="">
-          <input type="submit" value="Search">
-        </form>
-        <div id="search">No Results</div><br>
+        <form>
+          <t>Search  Dictionary  for  Synonyms: <br></t>
+          <input type="text" name = "syn" id="synonym" value="" onkeydown="buttonClick()">
+          <button id = "button" name="search" type="button" onclick="synonymSearch()">Search</button>
+        </form> <br>
+        <div id="search"></div><br>
+        <p id ="definition"></p>
     </body>
 </html>
